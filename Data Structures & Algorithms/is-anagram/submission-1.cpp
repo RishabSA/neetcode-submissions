@@ -1,0 +1,31 @@
+class Solution {
+public:
+    bool isAnagram(string s, string t) {
+        if (s.length() != t.length()) return false;
+
+        std::unordered_map<char, int> freqs;
+
+        // for (char c : s) {
+        //     freqs[c]++;
+        // }
+
+        // for (char c : t) {
+        //     freqs[c]--;
+        // }
+
+        // for (auto i : freqs) {
+        //     if (i.second != 0) return false;
+        // }
+        // return true;
+
+        unordered_map<char, int> countS;
+        unordered_map<char, int> countT;
+
+        for (int i = 0; i < s.length(); i++) {
+            countS[s[i]]++;
+            countT[t[i]]++;
+        }
+        
+        return countS == countT;
+    }
+};
